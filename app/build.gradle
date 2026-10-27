@@ -1,33 +1,30 @@
 plugins {
-    id("com.android.application")
+    id 'com.android.application'
 }
 
 android {
-    namespace = "com.nebula.eye"
-    compileSdk = 34
+    namespace 'com.nebula.eye'
+    compileSdk 34
 
     defaultConfig {
-        applicationId = "com.nebula.eye"
-        minSdk = 26
-        targetSdk = 34
-        versionCode = 1
-        versionName = "0.1.0"
+        applicationId 'com.nebula.eye'
+        minSdk 26
+        targetSdk 34
+        versionCode 1
+        versionName '0.1.0'
     }
 
     buildTypes {
-        getByName("release") {
-            isMinifyEnabled = false
-            proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
-            )
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
-        getByName("debug") {
-            isDebuggable = true
+        debug {
+            debuggable true
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_17
-        targetCompatibility = JavaVersion.VERSION_17
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
     }
 }
