@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="a11y_desc">Nebula Eye: lê a tela (nós de UI) e executa toques para automação local via http://127.0.0.1:38177. Nada sai do aparelho.</string>
+    <string name="app_status">Nebula Eye</string>
+</resources>
