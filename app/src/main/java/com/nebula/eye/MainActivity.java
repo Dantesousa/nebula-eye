@@ -29,7 +29,7 @@ public class MainActivity extends Activity {
         sv.addView(root);
 
         TextView title = new TextView(this);
-        title.setText("Nebula Eye 0.1.2");
+        title.setText("Nebula Eye 0.1.3");
         title.setTextSize(22);
         root.addView(title);
 

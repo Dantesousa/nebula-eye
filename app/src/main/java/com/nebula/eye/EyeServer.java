@@ -128,7 +128,7 @@ public class EyeServer extends Thread {
     private void route(String method, String path, String query, String body, OutputStream out) throws Exception {
         if ("/".equals(path)) path = "/state";
         if ("GET".equalsIgnoreCase(method) && "/state".equals(path)) {
-            json(out, 200, "{\"ok\":true,\"projection\":" + EyeState.hasProjection()
+            json(out, 200, "{\"ok\":true,\"ver\":\"" + BuildConfig.VERSION_NAME + "\",\"projection\":" + EyeState.hasProjection()
                     + ",\"a11y\":" + EyeState.hasA11y()
                     + ",\"w\":" + EyeState.width + ",\"h\":" + EyeState.height + "}");
             return;
