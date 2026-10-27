@@ -13,7 +13,6 @@ import android.media.projection.MediaProjectionManager;
 import android.os.Build;
 import android.util.DisplayMetrics;
 import android.view.WindowManager;
-import androidx.core.app.NotificationCompat;
 import java.io.ByteArrayOutputStream;
 import java.nio.ByteBuffer;
 import android.graphics.Bitmap;

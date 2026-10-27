@@ -12,8 +12,6 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
 
 /** One screen: grant projection, open a11y settings, toggle server, show status. */
 public class MainActivity extends Activity {
@@ -71,10 +69,9 @@ public class MainActivity extends Activity {
         root.addView(b4);
 
         if (Build.VERSION.SDK_INT >= 33) {
-            if (ContextCompat.checkSelfPermission(this,
-                    android.Manifest.permission.POST_NOTIFICATIONS)
+            if (checkSelfPermission(android.Manifest.permission.POST_NOTIFICATIONS)
                     != PackageManager.PERMISSION_GRANTED) {
-                ActivityCompat.requestPermissions(this,
+                requestPermissions(
                         new String[]{android.Manifest.permission.POST_NOTIFICATIONS}, 7);
             }
         }
@@ -120,7 +117,7 @@ public class MainActivity extends Activity {
     private void startEye() {
         try {
             Intent i = new Intent(this, CaptureService.class);
-            ContextCompat.startForegroundService(this, i);
+            startForegroundService(i);
         } catch (Exception e) {
             if (status != null) status.setText("falha no servo: " + e);
         }

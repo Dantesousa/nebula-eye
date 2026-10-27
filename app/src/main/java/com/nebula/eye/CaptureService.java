@@ -13,7 +13,6 @@ import android.os.Build;
 import android.os.IBinder;
 import android.util.DisplayMetrics;
 import android.view.WindowManager;
-import androidx.core.app.NotificationCompat;
 
 /** Foreground service holding the MediaProjection + VirtualDisplay. */
 public class CaptureService extends Service {
@@ -29,7 +28,7 @@ public class CaptureService extends Service {
                     NotificationManager.IMPORTANCE_LOW);
             try { nm.createNotificationChannel(ch); } catch (Exception ignored) {}
         }
-        Notification n = new NotificationCompat.Builder(this, CH)
+        Notification n = new Notification.Builder(this, CH)
                 .setContentTitle("Nebula Eye ativo")
                 .setContentText("captura em http://127.0.0.1:" + EyeState.PORT)
                 .setSmallIcon(android.R.drawable.ic_menu_camera)
