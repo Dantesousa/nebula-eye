@@ -73,7 +73,11 @@ public class CaptureService extends Service {
                     @Override public void onStop() { teardown(); }
                 }, null);
             }
+        } catch (SecurityException se) {
+            EyeState.lastError = "proj negada: " + se.getMessage();
+            stopSelf();
         } catch (Exception e) {
+            EyeState.lastError = "capture: " + e;
             stopSelf();
         }
         return START_STICKY;

@@ -60,6 +60,20 @@ public class MainActivity extends Activity {
         b3.setOnClickListener(v -> startEye());
         root.addView(b3);
 
+        Button bx = new Button(this);
+        bx.setText("4. Bateria: sem restrições");
+        bx.setOnClickListener(v -> {
+            try {
+                Intent i = new Intent(
+                        android.provider.Settings.ACTION_REQUEST_IGNORE_BATTERY_OPTIMIZATIONS,
+                        android.net.Uri.parse("package:com.nebula.eye"));
+                startActivity(i);
+            } catch (Exception e) {
+                if (status != null) status.setText("bateria: " + e);
+            }
+        });
+        root.addView(bx);
+
         Button b4 = new Button(this);
         b4.setText("Parar servidor");
         b4.setOnClickListener(v -> {
@@ -89,6 +103,8 @@ public class MainActivity extends Activity {
                 + "\na11y: " + (EyeState.hasA11y() ? "ON" : "off")
                 + "\nserver: " + (EyeState.serverOn() ? "ON http://127.0.0.1:" + EyeState.PORT : "off")
                 + "\n\nendpoints:\n/state /screenshot /nodes\nPOST /tap /swipe /text";
+        String err = EyeState.lastError;
+        if (err != null && !err.isEmpty()) s += "\n\nerro: " + err;
         if (status != null) status.setText(s);
     }
 

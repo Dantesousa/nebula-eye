@@ -20,6 +20,7 @@ import android.graphics.Bitmap;
 /** Holds shared state + screenshot capture. No external deps. */
 public class EyeState {
     public static final int PORT = 38177;
+    public static volatile String lastError = "";
 
     public static volatile int pendingResultCode = 0;
     public static volatile Intent pendingData = null;
